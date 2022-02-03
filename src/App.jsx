@@ -33,7 +33,8 @@ const AverageContainer = styled.div`
 `
 
 const App = () => {
-  const { customers, averageAges } = useContext(CustomerContext)
+  const { customers, averageAges, fetchCustomerList } =
+    useContext(CustomerContext)
   const { show } = useContext(LoadingContext)
   const { visible, openHandler, closeHandler } = useModal()
   const {
@@ -59,6 +60,9 @@ const App = () => {
           ) : (
             <Text h3>No hay clientes</Text>
           )}
+          <Button onClick={fetchCustomerList} css={{ marginBottom: '5px' }}>
+            Actualizar clientes
+          </Button>
           <Button onClick={openHandler}>Crear nuevo cliente</Button>
         </AverageContainer>
 

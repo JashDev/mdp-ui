@@ -49,6 +49,7 @@ const CustomerForm = ({ visible, closeHandler }) => {
   return (
     <Modal
       closeButton
+      animated={false}
       aria-labelledby="modal-title"
       open={visible}
       onClose={closeHandler}

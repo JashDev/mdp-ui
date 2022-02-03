@@ -7,3 +7,4 @@ Made with:
 * Axios
 * Context API
 * Styled Components
+* sweetalert2

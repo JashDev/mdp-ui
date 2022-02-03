@@ -2,6 +2,7 @@ import React from 'react'
 import { NextUIProvider } from '@nextui-org/react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import 'sweetalert2/dist/sweetalert2.css'
 import CustomerProvider from './context/CustomerContext'
 import LoadingProvider from './context/LoadingContext'
 

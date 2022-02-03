@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import swal from 'sweetalert2'
 import {
   customerAverageAges,
   customerCreate,
@@ -21,6 +22,15 @@ const CustomerProvider = (props) => {
       setCustomers(response)
     } catch (error) {
       setCustomers([])
+      handleHide()
+      await swal.fire({
+        title: 'Error',
+        text:
+          error.response.status === 404
+            ? 'No hay clientes registrados'
+            : error.message,
+        icon: 'error',
+      })
       console.error(error)
     } finally {
       handleHide()
@@ -60,7 +70,9 @@ const CustomerProvider = (props) => {
   }, [])
 
   return (
-    <CustomerContext.Provider value={{ customers, averageAges, saveCustomer }}>
+    <CustomerContext.Provider
+      value={{ customers, averageAges, saveCustomer, fetchCustomerList }}
+    >
       {props.children}
     </CustomerContext.Provider>
   )
